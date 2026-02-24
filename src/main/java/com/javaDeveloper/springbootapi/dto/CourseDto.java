@@ -1,7 +1,9 @@
 package com.javaDeveloper.springbootapi.dto;
 
+import lombok.Data;
 import java.util.Set;
 
+@Data
 public class CourseDto {
     private Long id;
     private String courseName;
@@ -15,11 +17,4 @@ public class CourseDto {
         this.students = students;
     }
 
-    public Long getId() { return id; }
-
-    public String getCourseName() { return courseName; }
-    public void setCourseName(String courseName) { this.courseName = courseName; }
-
-    public Set<String> getStudents() { return students; }
-    public void setStudents(Set<String> students) { this.students = students; }
-}
+    }

@@ -1,11 +1,14 @@
 package com.javaDeveloper.springbootapi.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.util.HashSet;
 import java.util.Set;
 
     @Entity
     @Table(name = "roles")
+    @Data
     public class Role {
 
         @Id
@@ -23,11 +26,4 @@ import java.util.Set;
         public Role(String roleName) {
             this.roleName = roleName;
         }
-
-        public Long getId() { return id; }
-
-        public String getRoleName() { return roleName; }
-        public void setRoleName(String roleName) { this.roleName = roleName; }
-
-        public Set<UserRole> getUserRoles() { return userRoles; }
     }

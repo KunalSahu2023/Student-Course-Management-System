@@ -1,11 +1,14 @@
 package com.javaDeveloper.springbootapi.payload;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
+@Data
 
 public class ApiResponse <T> {
     private int code;
     private String message;
-    private T data;   // ✅ GENERIC TYPE
+    private T data;
     private LocalDateTime timestamp;
 
     public ApiResponse() {
@@ -18,36 +21,5 @@ public class ApiResponse <T> {
         this.timestamp = timestamp;
     }
 
-    public int getCode() {
-        return code;
-    }
-
-    public void setCode(int code) {
-        this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public T getData() {        // ✅ GENERIC
-        return data;
-    }
-
-    public void setData(T data) {   // ✅ GENERIC
-        this.data = data;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
 
 }

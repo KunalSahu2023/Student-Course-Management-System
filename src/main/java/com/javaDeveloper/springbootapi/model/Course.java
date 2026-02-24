@@ -1,11 +1,14 @@
 package com.javaDeveloper.springbootapi.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
+
 import java.util.HashSet;
 import java.util.Set;
 
     @Entity
     @Table(name = "courses")
+    @Data
     public class Course {
 
         @Id
@@ -29,10 +32,4 @@ import java.util.Set;
             this.courseName = courseName;
         }
 
-        public Long getId() { return id; }
-
-        public String getCourseName() { return courseName; }
-        public void setCourseName(String courseName) { this.courseName = courseName; }
-
-        public Set<Student> getStudents() { return students; }
     }

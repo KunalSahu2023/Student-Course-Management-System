@@ -1,9 +1,11 @@
 package com.javaDeveloper.springbootapi.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
-    @Entity
+@Entity
     @Table(name = "user_roles")
+@Data
     public class UserRole {
 
         @Id
@@ -24,12 +26,4 @@ import jakarta.persistence.*;
             this.student = student;
             this.role = role;
         }
-
-        public Long getId() { return id; }
-
-        public Student getStudent() { return student; }
-        public void setStudent(Student student) { this.student = student; }
-
-        public Role getRole() { return role; }
-        public void setRole(Role role) { this.role = role; }
     }
