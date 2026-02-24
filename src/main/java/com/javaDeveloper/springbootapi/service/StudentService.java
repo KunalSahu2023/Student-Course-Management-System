@@ -1,6 +1,7 @@
 package com.javaDeveloper.springbootapi.service;
 
 import com.javaDeveloper.springbootapi.dto.StudentDto;
+import com.javaDeveloper.springbootapi.model.Student;
 
 import java.util.List;
 

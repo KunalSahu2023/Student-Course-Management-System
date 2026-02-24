@@ -22,4 +22,7 @@ public class StudentDto {
         this.roles = roles;
         this.courses = courses;
     }
+
+    public StudentDto(Long id, String name) {
+    }
 }

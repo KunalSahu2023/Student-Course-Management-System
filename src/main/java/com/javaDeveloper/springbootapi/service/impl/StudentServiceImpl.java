@@ -1,5 +1,4 @@
 package com.javaDeveloper.springbootapi.service.impl;
-
 import com.javaDeveloper.springbootapi.dto.StudentDto;
 import com.javaDeveloper.springbootapi.model.Student;
 import com.javaDeveloper.springbootapi.repository.StudentRepo;
@@ -16,7 +15,14 @@ import java.util.stream.Collectors;
         @Autowired
         private StudentRepo studentRepo;
 
-        @Override
+    @Override
+    public StudentDto createStudent(StudentDto studentDto) {
+        Student student = new Student();
+        studentRepo.save(student);
+        return new StudentDto(student.getId(), student.getName());
+    }
+
+    @Override
         public StudentDto getStudentById(Long id) {
 
             Student student = studentRepo.findById(id)
