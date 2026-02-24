@@ -31,5 +31,4 @@ import java.util.Set;
         public Course(String courseName) {
             this.courseName = courseName;
         }
-
     }

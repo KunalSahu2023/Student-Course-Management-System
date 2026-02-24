@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-    @Table(name = "user_roles")
+@Table(name = "user_roles")
 @Data
     public class UserRole {
 
@@ -26,4 +26,5 @@ import lombok.Data;
             this.student = student;
             this.role = role;
         }
+
     }
