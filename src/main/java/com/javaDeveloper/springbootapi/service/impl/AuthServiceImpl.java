@@ -28,7 +28,7 @@ public class AuthServiceImpl implements AuthService {
         Student student = new Student();
         student.setName(signUp.getName());
         student.setEmail(signUp.getEmail());
-//        student.setPassword(passwordEncoder.encode(signUp.getPassword()));
+        student.setPassword(passwordEncoder.encode(signUp.getPassword()));
 
         studentRepo.save(student);
 
@@ -42,12 +42,10 @@ public class AuthServiceImpl implements AuthService {
                 .findByEmail(login.getEmail())
                 .orElseThrow(() -> new RuntimeException("User not found"));
 
-//        if (passwordEncoder.matches(login.getPassword(), student.getPassword())) {
-//            return "Login Successful";
-//        } else {
-//            throw new RuntimeException("Invalid credentials");
-//        }
-        return "User Logged Successfully";
+        if (passwordEncoder.matches(login.getPassword(), student.getPassword())) {
+            throw new RuntimeException("Invalid credentials");
+        }
+        return "Login Successful";
     }
 
 }

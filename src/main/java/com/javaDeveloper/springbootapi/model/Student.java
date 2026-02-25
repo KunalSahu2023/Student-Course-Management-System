@@ -23,6 +23,9 @@ import java.util.Set;
         @Column(unique = true, nullable = false)
         private String email;
 
+        @Column(nullable = false)
+        private String password;
+
         @ManyToMany(mappedBy = "students")
         private Set<Course> courses = new HashSet<>();
 
@@ -32,8 +35,9 @@ import java.util.Set;
         // Constructors
         public Student() {}
 
-        public Student(String name, String email) {
+        public Student(String name, String email, String password) {
             this.name = name;
             this.email = email;
+            this.password = password;
         }
     }
