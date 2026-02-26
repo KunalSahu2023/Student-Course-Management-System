@@ -7,7 +7,7 @@ public class SpringbootApiApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootApiApplication.class, args);
-        System.out.println("--------SpringBoot RestApis Project-----------");
+        System.out.println("--------Student Course Management-----------");
     }
 
 }
