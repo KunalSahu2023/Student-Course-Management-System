@@ -1,16 +1,18 @@
 package com.javaDeveloper.springbootapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
     @Entity
     @Table(name = "students")
-    @Data
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public class Student {
 
         @Id
@@ -26,14 +28,17 @@ import java.util.Set;
         @Column(nullable = false)
         private String password;
 
-        @ManyToMany(mappedBy = "students")
+        @ManyToMany
+        @JoinTable(
+                name = "student_course",
+                joinColumns = @JoinColumn(name = "student_id"),
+                inverseJoinColumns = @JoinColumn(name = "course_id")
+        )
         private Set<Course> courses = new HashSet<>();
 
-        @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+        @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
+        @JsonIgnore
         private Set<UserRole> userRoles = new HashSet<>();
-
-        // Constructors
-        public Student() {}
 
         public Student(String name, String email, String password) {
             this.name = name;

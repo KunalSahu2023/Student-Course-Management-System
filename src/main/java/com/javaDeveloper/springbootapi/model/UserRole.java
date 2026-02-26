@@ -1,11 +1,14 @@
 package com.javaDeveloper.springbootapi.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
-@Table(name = "user_roles")
-@Data
+@Table(name = "user_roles",
+        uniqueConstraints = @UniqueConstraint(columnNames = {"student_id", "role_id"}))
+@Getter
+@Setter
+@AllArgsConstructor
     public class UserRole {
 
         @Id

@@ -1,14 +1,18 @@
 package com.javaDeveloper.springbootapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.HashSet;
 import java.util.Set;
 
     @Entity
     @Table(name = "courses")
-    @Data
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
     public class Course {
 
         @Id
@@ -18,15 +22,9 @@ import java.util.Set;
         @Column(nullable = false)
         private String courseName;
 
-        @ManyToMany
-        @JoinTable(
-                name = "student_course",
-                joinColumns = @JoinColumn(name = "course_id"),
-                inverseJoinColumns = @JoinColumn(name = "student_id")
-        )
+        @ManyToMany(mappedBy = "courses")
+        @JsonIgnore
         private Set<Student> students = new HashSet<>();
-
-        public Course() {}
 
         public Course(String courseName) {
             this.courseName = courseName;

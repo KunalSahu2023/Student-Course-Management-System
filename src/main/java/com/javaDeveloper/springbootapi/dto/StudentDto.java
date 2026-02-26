@@ -9,6 +9,7 @@ public class StudentDto {
     private Long id;
     private String name;
     private String email;
+    private String password;
     private Set<String> roles;
     private Set<String> courses;
 
@@ -24,5 +25,7 @@ public class StudentDto {
     }
 
     public StudentDto(Long id, String name) {
+        this.id = id;
+        this.name = name;
     }
 }

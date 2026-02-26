@@ -1,6 +1,7 @@
 package com.javaDeveloper.springbootapi.controller;
 
 import com.javaDeveloper.springbootapi.dto.StudentDto;
+import com.javaDeveloper.springbootapi.dto.StudentResponse;
 import com.javaDeveloper.springbootapi.service.StudentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,24 +20,24 @@ public class StudentController {
 
     // 🔹 Create Student
     @PostMapping
-    public ResponseEntity<StudentDto> createStudent(@RequestBody StudentDto student) {
+    public ResponseEntity<StudentResponse> createStudent(@RequestBody StudentDto student) {
         return ResponseEntity.ok(studentService.createStudent(student));
     }
     // 🔹 Get All Students
     @GetMapping
-    public ResponseEntity<List<StudentDto>> getAllStudents() {
+    public ResponseEntity<List<StudentResponse>> getAllStudents() {
         return ResponseEntity.ok(studentService.getAllStudents());
     }
 
     // 🔹 Get Student By ID
     @GetMapping("/{id}")
-    public ResponseEntity<StudentDto> getStudentById(@PathVariable Long id) {
+    public ResponseEntity<StudentResponse> getStudentById(@PathVariable Long id) {
         return ResponseEntity.ok(studentService.getStudentById(id));
     }
 
     // 🔹 Update Student
     @PutMapping("/{id}")
-    public ResponseEntity<StudentDto> updateStudent(
+    public ResponseEntity<StudentResponse> updateStudent(
             @PathVariable Long id,
             @RequestBody StudentDto student) {
         return ResponseEntity.ok(studentService.updateStudent(student, id));

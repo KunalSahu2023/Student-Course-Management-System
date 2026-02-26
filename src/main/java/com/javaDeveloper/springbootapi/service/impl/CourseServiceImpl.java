@@ -20,7 +20,7 @@ public class CourseServiceImpl implements CourseService {
     public CourseDto createCourse(CourseDto course) {
 
         Course course1 = new Course();
-        course1.setCourseName(course1.getCourseName());
+        course1.setCourseName(course.getCourseName());
 
         courseRepo.save(course1);
 

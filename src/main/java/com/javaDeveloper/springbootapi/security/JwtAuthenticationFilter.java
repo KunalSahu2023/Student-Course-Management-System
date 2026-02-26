@@ -29,7 +29,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
 
         String header = request.getHeader("Authorization");
-        System.out.println("header: " + header);
         if (header != null && header.startsWith("Bearer ")) {
 
             String token = header.substring(7);
@@ -37,8 +36,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             if (jwtTokenProvider.validateToken(token)) {
 
                 String email = jwtTokenProvider.getEmailFromToken(token);
-                System.out.println("Authentication set for: " + email);
-                System.out.println("Token valid: " + jwtTokenProvider.validateToken(token));
+//                System.out.println("Authentication set for: " + email);
+//                System.out.println("Token valid: " + jwtTokenProvider.validateToken(token));
 
                 UserDetails userDetails =
                         userDetailsService.loadUserByUsername(email);
